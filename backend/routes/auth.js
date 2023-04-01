@@ -118,6 +118,7 @@ router.post('/getUser', fetchUser  ,async (req, res) =>{
 
   try {
   let userId = req.userDetails.id;
+  // select password ko chd ke sab lelega
     const user = await User.findById(userId).select("-password")
     res.send(user)
   } catch (error) {

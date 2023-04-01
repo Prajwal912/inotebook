@@ -9,7 +9,10 @@ const fetchUser = (req, res, next) => {
     res.status(401).send({ error: "please auntheticate using valid token" });
   }
   try {
+    //if the token will get then 
     const string = jwt.verify(token, JWT_SECRET);
+    
+    //token verify hone ke baad user mil jayega
     req.userDetails = string.user;
     next();
   } catch (error) {
