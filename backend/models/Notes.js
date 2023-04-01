@@ -5,17 +5,22 @@ const {Schema} = mongoose
 
 
 const notesSchema = new Schema({
+   //this schema for particular user using its personal id
+   user:{
+type:mongoose.Schema.Types.ObjectId,
+ref:'user'
+   },
    title:{
     type:String,
     required:true,
    },
+   description:{
+      type:String,
+      required:true
+   },
    tag:{
     type:String,
     default:"General"
-   },
-   description:{
-    type:String,
-    required:true
    },
    date:{
     type:Date,
